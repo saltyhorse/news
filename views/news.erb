@@ -22,18 +22,63 @@
   </head>
   <body>
 
-    <div class="container mt-5">
-      <h1>News</h1>
+    <hr class="my-7">
+
+    <div class="container">
+        <div class="row my-4">
+          <div class="col text-center">
+            <h1> Headlines From Around the Country </h1>
+          </div>
+         </div>
     </div>
 
-    <h2>
-      <%= @current['temp'] %>
-      <% for day in @daily_temp %>
-      <div class = "containter mt-5">
-       <%= day["temp"]["day"] %>
+    <hr class="my-7">
+
+
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
+        </div>
+    </div>
+
+    
+
+  <hr class="my-4">
+    
+    <div class= "container fluid">
+        <div class = "row">
+            <h4> Current temperature for today is <%= @current['temp'] %> F <h4>
+        </div>
+    </div>
+    
+    <div class= "container fluid">
+        <div class = "row">
+                    <h5> Forecast for the next 5 days </h5>
+        </div>
+        <div class= "row">
+            <% for day in @fiveday_temp %>
+            <div class = "col-sm-2 text center">
+                <div class = "card">
+                    <img src="..." class="card-img-top" alt="...">
+                </div>
+                <div class = "card-body">
+                    <h6> Avg <%=day["temp"]["day"] %>F </h6>
+                    <h6> Min <%=day["temp"]["min"]%>F </h6>
+                    <h6> Max of <%= day["temp"]["max"] %>F  </h6>
+                </div>
+            </div>
+            <% end %>
        </div>
-      <% end %>
-    </h2>
+    </div>
 
 
 

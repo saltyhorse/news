@@ -17,7 +17,8 @@ get "/" do
   forecast = HTTParty.get(url).parsed_response.to_hash
 
   @current= forecast["current"]
-  @daily_temp= forecast ["daily"]
+  daily_temp= forecast ["daily"]
+  @fiveday_temp = daily_temp[0,5]
 
   ### Get the news
 
