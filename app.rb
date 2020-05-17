@@ -17,11 +17,13 @@ get "/" do
   forecast = HTTParty.get(url).parsed_response.to_hash
 
   @current= forecast["current"]
-  @daily = forecast ["daily"]
+  @daily_temp= forecast ["daily"]
 
   ### Get the news
 
   url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=ddf0f244507c49d5adb66bfc95fb71e1"
   @news = HTTParty.get(url).parsed_response.to_hash
+
+  view 'news'
 
 end
