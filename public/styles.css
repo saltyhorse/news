@@ -1,3 +1,31 @@
+ 
+ h1 {
+     font-family:'DM Mono';
+     font-variant: small-caps;
+     font-size: 50px;
+ }
+
  h3 {
-    font-style: italic
+    font-variant: small-caps;
+}
+ 
+ h4 {
+    font-family:'DM Mono';
+}
+h5,h6 {
+    font-family: 'PT Sans';
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h7 {
+    font-size: 10px;
+    font-style: italic;
+}
+
+.btn {
+    background-color: #e88d67;
+    border-color: #e88d67;
 }

@@ -18,7 +18,7 @@ get "/" do
 
   @current= forecast["current"]
   daily_temp= forecast ["daily"]
-  @fiveday_temp = daily_temp[2,6]
+  @fiveday_temp = daily_temp[1,6]
 
   ### Get the news
 

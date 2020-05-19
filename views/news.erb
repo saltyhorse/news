@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Google Fonts -->
-    <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Mono:wght@300&family=PT+Sans&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -29,14 +28,14 @@
         <h1> The Daily Download </h1>
     </div>
     <div class= "row">
-        <h3> everything you need to know aggregated in one place </h3>
+        <h4> everything you need to know </h4>
     </div>
 </div>
 
 <hr class="my-6">
 
 <div class = "container">
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row row-cols-1 row-cols-lg-3">
     <% for each_article in @articles %>
         <div class="col mb-4">
             <div class="card h-100">
@@ -61,7 +60,7 @@
     
  <div class= "container fluid">
         <div class = "row">
-            <h4> Current temperature for today (<%= Time.at(@current["dt"]).strftime("%m/%d") %>) is <%= @current["temp"] %>F </h4>
+            <h3> Current Temperature For Today (<%= Time.at(@current["dt"]).strftime("%m/%d") %>) Is <%= @current["temp"] %>F </h3>
         </div>
     </div>
     
@@ -71,10 +70,7 @@
         </div>
         <div class= "row">
             <% for day in @fiveday_temp %>
-            <div class = "col-sm-2 text center">
-                <div class = "card weather">
-                    <img src="deck.png" class="card-img-top" onerror=this.src="default.png">
-                </div>
+            <div class = "col-md-2 text center">
                 <div class = "card-body">
                     <h6> <%= Time.at(day["dt"]).strftime("%m/%d/%y") %>  </h6>
                     <h6> Avg <%=day["temp"]["day"] %>F </h6>
@@ -85,6 +81,12 @@
             <% end %>
        </div>
  </div>
+
+  <div class= "container footer">
+        <div class = "row">
+            <h7> This site is powered by openweathermap.org and newsapi.org </h7>
+        </div>
+    </div>
 
 
 
