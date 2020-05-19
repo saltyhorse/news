@@ -22,33 +22,34 @@
   </head>
   <body>
 
-    <hr class="my-6">
+<hr class="my-6">
 
-    <div class="container">
-        <div class="row text-ceter">
-            <h1> Headlines From Around the Country </h1>
-         </div>
+<div class="container">
+    <div class="row text-ceter">
+        <h1> Headlines From Around the Country </h1>
     </div>
+</div>
 
-    <hr class="my-6">
+<hr class="my-6">
 
 
-    <div class="container">
-        <div class="card text-center">
-            <div class="card-header">
-                Featured
-            </div>
+<div class="row row-cols-1 row-cols-md-3">
+  <% for each_article in @articles %>
+    <div class="col mb-4">
+        <div class="card h-100">
+        <img src="<%= each_article["urlToImage"] %>" class="card-img-top" alt="default.png">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text"> <%= @articles %> </p>
+                    <h5 class="card-title"> <%= each_article["title"] %> </h5>
+                    <p class="card-text"> <%= each_article["description"] %> </p>
             </div>
-            <div class="card-footer text-muted">
-                2 days ago
+            <div class= "card-footer text-center">
+                <a href="<%= each_article["url"] %>"" class="btn btn-primary"> Read more </a>
             </div>
         </div>
     </div>
+  <% end %>
+</div>
 
-    
 
   <hr class="my-4">
     
@@ -67,7 +68,7 @@
             <% for day in @fiveday_temp %>
             <div class = "col-sm-2 text center">
                 <div class = "card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="deck.png" class="card-img-top" alt="default.png" >
                 </div>
                 <div class = "card-body">
                     <h6> <%= Time.at(day["dt"]).strftime("%m/%d") %>  </h6>

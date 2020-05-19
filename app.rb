@@ -17,7 +17,6 @@ get "/" do
   forecast = HTTParty.get(url).parsed_response.to_hash
 
   @current= forecast["current"]
-  @current_date=Time.at(forecast["current"]["dt"])
   daily_temp= forecast ["daily"]
   @fiveday_temp = daily_temp[1,6]
 
@@ -27,7 +26,7 @@ get "/" do
   news = HTTParty.get(url).parsed_response.to_hash
 
   article_number = [0,20]
-  @articles = news["articles"][1]["source"]["name"]
+  @articles = news["articles"]
 
  #@top_articles = []
   #for source in article_number 
