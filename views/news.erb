@@ -24,54 +24,59 @@
 
 <hr class="my-6">
 
-<div class="container">
-    <div class="row text-ceter">
-        <h1> Headlines From Around the Country </h1>
+<div class="container text-center">
+    <div class="row">
+        <h1> The Daily Download </h1>
+    </div>
+    <div class= "row">
+        <h3> everything you need to know aggregated in one place </h3>
     </div>
 </div>
 
 <hr class="my-6">
 
-
-<div class="row row-cols-1 row-cols-md-3">
-  <% for each_article in @articles %>
-    <div class="col mb-4">
-        <div class="card h-100">
-        <img src="<%= each_article["urlToImage"] %>" class="card-img-top" alt="default.png">
-            <div class="card-body">
-                    <h5 class="card-title"> <%= each_article["title"] %> </h5>
-                    <p class="card-text"> <%= each_article["description"] %> </p>
-            </div>
-            <div class= "card-footer text-center">
-                <a href="<%= each_article["url"] %>"" class="btn btn-primary"> Read more </a>
+<div class = "container">
+    <div class="row row-cols-1 row-cols-md-3">
+    <% for each_article in @articles %>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class= "article image">
+                    <img src="<%= each_article["urlToImage"] %>" class="card-img-top" onerror=this.src="default.png">
+                </div>
+                <div class="card-body">
+                        <h5 class="card-title"> <%= each_article["title"] %> </h5>
+                        <p class="card-text"> <%= each_article["description"] %> </p>
+                </div>
+                <div class= "card-footer text-center">
+                    <a target="_blank" href="<%= each_article["url"] %>"" class="btn btn-primary"> Read more </a>
+                </div>
             </div>
         </div>
+    <% end %>
     </div>
-  <% end %>
 </div>
 
 
   <hr class="my-4">
     
-    <div class= "container fluid">
+ <div class= "container fluid">
         <div class = "row">
-            <h4> Current temperature for today is <%= @current["temp"] %> F <h4>
-            <h4> on  <%= Time.at(@current["dt"]).strftime("%m/%d") %> <h4>
+            <h4> Current temperature for today (<%= Time.at(@current["dt"]).strftime("%m/%d") %>) is <%= @current["temp"] %>F </h4>
         </div>
     </div>
     
     <div class= "container fluid">
         <div class = "row">
-                    <h5> Forecast for the next 6 days </h5>
+            <h5> Forecast for the next 6 days </h5>
         </div>
         <div class= "row">
             <% for day in @fiveday_temp %>
             <div class = "col-sm-2 text center">
-                <div class = "card">
-                    <img src="deck.png" class="card-img-top" alt="default.png" >
+                <div class = "card weather">
+                    <img src="deck.png" class="card-img-top" onerror=this.src="default.png">
                 </div>
                 <div class = "card-body">
-                    <h6> <%= Time.at(day["dt"]).strftime("%m/%d") %>  </h6>
+                    <h6> <%= Time.at(day["dt"]).strftime("%m/%d/%y") %>  </h6>
                     <h6> Avg <%=day["temp"]["day"] %>F </h6>
                     <h6> Min <%=day["temp"]["min"]%>F </h6>
                     <h6> Max of <%= day["temp"]["max"] %>F  </h6>
@@ -79,7 +84,7 @@
             </div>
             <% end %>
        </div>
-    </div>
+ </div>
 
 
 

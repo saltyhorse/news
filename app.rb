@@ -18,23 +18,15 @@ get "/" do
 
   @current= forecast["current"]
   daily_temp= forecast ["daily"]
-  @fiveday_temp = daily_temp[1,6]
+  @fiveday_temp = daily_temp[2,6]
 
   ### Get the news
 
   url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=ddf0f244507c49d5adb66bfc95fb71e1"
   news = HTTParty.get(url).parsed_response.to_hash
 
-  article_number = [0,20]
   @articles = news["articles"]
-
- #@top_articles = []
-  #for source in article_number 
-    #@top_articles<< "#{news["articles"][source]["source"]["name"]}"
-  #end
-
-
-
+  
   view 'news'
 
 end
